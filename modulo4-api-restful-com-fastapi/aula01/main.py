@@ -5,7 +5,7 @@ from router import router as produto_router
 # Criar as tabelas no banco ao inicial a API
 # Se o  banco.db não existir, cria o arquivo e as tabelas
 # Se o já existir, não faz nada - não apaga os dados
-Base.medatada.create_all(bin=engine)
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="API de Produtos - SENAI",
