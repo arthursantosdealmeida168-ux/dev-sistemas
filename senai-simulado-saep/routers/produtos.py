@@ -36,7 +36,7 @@ def buscar(produto_id: int, db: Session = Depends(get_db)):
 def criar(dados: ProdutoCreate, db: Session = Depends(get_db)):
     produto_existente = db.query(Produto).filter(Produto.nome == dados.nome).first()
     if produto_existente:
-            raise HTTPException(status_code=409, detail="Login foi duplicado!")
+            raise HTTPException(status_code=409, detail="Login foi verificado!")
     produto = Produto(
             nome = dados.nome,
             unidade = dados.unidade,
