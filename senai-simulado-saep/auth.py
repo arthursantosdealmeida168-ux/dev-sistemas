@@ -21,7 +21,7 @@ oath2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 # Funções de senha
 # Transforma a senha em hash bcrypt para salvar no banco
 def hash_senha(senha: str) -> str:
-    return pwd_context(senha)
+    return pwd_context.hash(senha)
 
 # Compara a senha digitada com o hash do banco
 def verificar_senha(senha: str, hash_salvo: str) -> bool:
@@ -33,13 +33,13 @@ def verificar_senha(senha: str, hash_salvo: str) -> bool:
 def criar_token(dados: dict) -> str:
     payload = dados.copy()
     expira = datetime.utcnow() + timedelta(minutes=EXPIRE_MIN)
-    payload.update({"exp: expira"})
+    payload.update({"exp": expira})
     return jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
 
 # Dependência: usuário logado
 # Vamos injetar essa função nos enspoints protegidos com Depends()
 # Dependência: extrai e valida o token, retorna o usuário
-def usuario_token(
+def usuario_logado(
         token: str = Depends(oath2_scheme),
         db: Session = Depends(get_db)
 ) -> Usuario:
