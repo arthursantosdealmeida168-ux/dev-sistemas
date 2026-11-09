@@ -13,6 +13,21 @@ class Usuario(BaseModel):
     ativo: bool = True # valor padrão
     salario: Optional[float] = None # campo opcional
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    @field_validator('salario')
+    @classmethod
+    def validar_salario(cls, v):
+        if v is None:
+            return v
+        if v < 0:
+            raise ValueError('O valor do salario não pode ser menor ou igual a 0')
+        return v
+  
+>>>>>>> 47da6c05f42bdfa75d0b70c1a0bf94f88c94c96e
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
     @field_validator('nome')
     @classmethod
     def validar_nome(cls, v):
@@ -20,6 +35,10 @@ class Usuario(BaseModel):
         if len(v) < 3:
             raise ValueError('Nome deve ter pelo menos 3 caracteres')
         return v.title()
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
     
     field_validator('salario') 
     @classmethod 
@@ -29,6 +48,11 @@ class Usuario(BaseModel):
         if v <= 0: 
             raise ValueError('Salário deve ser maior que zero') 
         return v 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 47da6c05f42bdfa75d0b70c1a0bf94f88c94c96e
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
 
 # Modelo de resposta: icluir o ID gerado pelo servidor
 class UsuarioResposta(BaseModel):
@@ -46,8 +70,18 @@ usuarios_db: list[UsuarioResposta] = [
                     cargo='QA', ativo=True, salario=3200.0),
     UsuarioResposta(id=3, nome='Max Muller', email='max@email.com',
                         cargo='Dev', ativo=True, salario=4500.0),
+<<<<<<< HEAD
     UsuarioResposta(id=3, nome='Diana Rocha', email='diana@email.com',
                         cargo='Product Manager', ativo=True, salario=6200.0),
+=======
+<<<<<<< HEAD
+    UsuarioResposta(id=3, nome='Diana Rocha', email='diana@email.com',
+                        cargo='Product Manager', ativo=True, salario=6200.0),
+=======
+    UsuarioResposta(id=4, nome='Diana costa', email='diana@email.com',
+                            cargo='Product manager', ativo=True, salario=5100.0),                    
+>>>>>>> 47da6c05f42bdfa75d0b70c1a0bf94f88c94c96e
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
 ]
 proximo_id = 5
 
@@ -56,6 +90,10 @@ proximo_id = 5
 def listar_usuario():
     return usuarios_db
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
 @app.get('/usuarios/ativos', response_model=list[UsuarioResposta]) 
 def listar_ativos(): 
     return [u for u in usuarios_db if u.ativo == True]
@@ -73,6 +111,27 @@ def info():
         'total_usuarios':  total, 
         'usuarios_ativos': ativos, 
         'cargos_aceitos':  ['Desenvolvedor', 'Designer', 'QA', 'Product Manager'], 
+<<<<<<< HEAD
+=======
+=======
+@app.get('/usuarios/ativos', response_model=list[UsuarioResposta])
+def listar_ativos():
+    return [u for u in usuarios_db if u.ativo == True]
+
+@app.get('/usuarios/cargo/{cargo}', response_model=list[UsuarioResposta])
+def listar_por_cargo(cargo: str):
+    return [u for u in usuarios_db if u.cargo.lower() == cargo.lower()]
+
+@app.get('/info', tags=['Geral'])
+def info():
+    total = len(usuarios_db)
+    ativos = len([u for u in usuarios_db if u.ativo == True])
+    return {
+        'total_usuarios': total,
+        'usuarios_ativos': ativos,
+        'cargos_aceitos': ['Desenvolvedor', 'Designer', 'QA', 'Product Manager'],
+>>>>>>> 47da6c05f42bdfa75d0b70c1a0bf94f88c94c96e
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
     }
 
 # GET - busca pelo id

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
 # ============================================
 # Python
 # ============================================
@@ -105,4 +109,62 @@ package-lock.json
 .project
 .classpath
 .settings/
+<<<<<<< HEAD
 *.iml
+=======
+*.iml
+=======
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Banco de dados
+*.db
+*.sqlite
+*.sqlite3
+data/
+
+# Ambiente e configurações
+.env
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testes
+.pytest_cache/
+.coverage
+htmlcov/
+>>>>>>> 47da6c05f42bdfa75d0b70c1a0bf94f88c94c96e
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616

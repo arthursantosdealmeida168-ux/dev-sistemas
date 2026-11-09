@@ -1,4 +1,5 @@
 from app.database import SessionLocal
+<<<<<<< HEAD
 
 from app.models import Departamento, Cargo, Funcionario
 
@@ -6,6 +7,12 @@ from app.models import Departamento, Cargo
 
 def popular_banco():
     db = SessionLocal()   # abrir sessão
+=======
+from app.models import Departamento, Cargo, Funcionario
+
+def popular_banco():
+    db = SessionLocal() # abrir sessão
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
     try:
         # Se já tem dados, não inserir de novo
         if db.query(Departamento).count() > 0:
@@ -27,6 +34,7 @@ def popular_banco():
         ])
 
         db.add_all([
+<<<<<<< HEAD
             Funcionario(nome='Carlos Silva', email='carlos@empresa.com', salario=4500.0),
             Funcionario(nome='Ana Lima', email='ana@empresa.com', salario=3800.0),
             Funcionario(nome='Bruno Costa', email='bruno@empresa.com', salario=5200.0),
@@ -42,6 +50,20 @@ def popular_banco():
     except Exception as erro:
         db.rollback()   # desfaz tudo se der erro
         print(f'Erro: {erro}')
+=======
+          Funcionario(nome='Roberto Freitas', email='roberto.freitas@gmail.com', telefone='(11) 997664-6612', salario=5700.00, ativo=True),
+          Funcionario(nome='Marisa Santos', email='marisa.santos@gmail.com', telefone='(21) 99051-0065', salario=4900.00, ativo=True),
+          Funcionario(nome='Flávio Correia', email='flavio.correia@gmail.com', telefone='(44) 99034-5271', salario=4200.00, ativo=True),
+          Funcionario(nome='Diantha Sousa', email='diantha.sousa@gmail.com', telefone='(31) 99643-8820', salario=6300.00, ativo=True),
+        ])
+
+        db.commit() # confirmar tudo no banco de uma vez
+        print('Banco preenchido com sucesso')
+
+    except Exception as e:
+        db.rollback() # desfazer tudo se der erro
+        print(f'Erro: {e}')
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
     finally:
         db.close()      # lembre-se sempre de fechar a sessão
 if __name__=='__main__':

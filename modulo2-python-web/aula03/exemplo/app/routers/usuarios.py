@@ -78,7 +78,15 @@ def atualizar_parcial(
         if user.id == usuario_id:
             atual =user.model_dump()
             atual.update(dados.model_dump(exclude_none=True))
+<<<<<<< HEAD
             banco[valor] = UsuarioSaida(** atual)
+=======
+<<<<<<< HEAD
+            banco[valor] = UsuarioSaida(** atual)
+=======
+            banco[valor] = UsuarioSaida(**atual)
+>>>>>>> 47da6c05f42bdfa75d0b70c1a0bf94f88c94c96e
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
             return banco[valor]
         raise HTTPException(404, 'Não encontrado')
 

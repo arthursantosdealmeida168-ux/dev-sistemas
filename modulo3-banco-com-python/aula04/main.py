@@ -38,6 +38,7 @@ print(f'Fornecedores criados: {forn1.id}, {forn2.id}, {forn3.id}')
 
 # produtos
 produtos = [
+<<<<<<< HEAD
     Produto(nome="Notebook Dell 15", preco=3500.0, quantidade=10, 
             categoria_id=cat1.id, fornecedor_id=forn1.id),
     Produto(nome="Mouse", preco=89.90, quantidade=50,
@@ -50,6 +51,19 @@ produtos = [
             categoria_id=cat3.id, fornecedor_id=forn3.id),
     Produto(nome="Pão", preco=8.90, quantidade=400,
             categoria_id=cat3.id, fornecedor_id=forn3.id),
+=======
+    Produto(nome="Notebook Dell 15", preco=3500.0, quantidade=10, categoria_id=cat1.id, fornecedor_id=forn1.id),
+
+    Produto(nome="Mouse", preco=89.90, quantidade=50, categoria_id=cat1.id, fornecedor_id=forn1.id),
+
+    Produto(nome="Camisa", preco=50.0, quantidade=80, categoria_id=cat2.id, fornecedor_id=forn2.id),
+
+    Produto(nome="Calça", preco=100.0, quantidade=45, categoria_id=cat2.id, fornecedor_id=forn2.id),
+
+    Produto(nome="Arroz", preco=29.90, quantidade=200, categoria_id=cat3.id, fornecedor_id=forn3.id),
+
+    Produto(nome="Pão", preco=8.90, quantidade=400, categoria_id=cat3.id, fornecedor_id=forn3.id),
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
 ]
 for p in produtos:
     db.add(p)
@@ -58,7 +72,11 @@ print(f' {len(produtos)} produtos inseridos')
 
 # Listar pra confirmar
 todos = db.query(Produto).all()
+<<<<<<< HEAD
 print("\n Produtos no banco")
+=======
+print("\n produtos no banco")
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
 for p in todos:
     print(f' [{p.id}] {p.nome} R$ {p.preco:.2f} Qtd: {p.quantidade}')
 db.close()

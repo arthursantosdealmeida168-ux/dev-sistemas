@@ -1,13 +1,32 @@
+<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", function() {
     
 // 1. Duplo clique    
+=======
+<<<<<<< HEAD
+document.addEventListener("DOMContentLoaded", function() {
+    
+// 1. Duplo clique    
+=======
+// 1. DuploClique
+document.addEventListener("DOMContentLoaded", function() {
+>>>>>>> 47da6c05f42bdfa75d0b70c1a0bf94f88c94c96e
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
     const duploClique = document.getElementById("duploClique");
     duploClique.addEventListener("dblclick", function() {
         alert("Você deu um duplo clique nesse parágrafo");
         console.log("this se refere a: ", this); // Exibe o elemento clicado
     });
 
+<<<<<<< HEAD
 // Demonstração arrow function x função regular
+=======
+<<<<<<< HEAD
+// Demonstração arrow function x função regular
+=======
+// Demonstração arrow function x função reguler
+>>>>>>> 47da6c05f42bdfa75d0b70c1a0bf94f88c94c96e
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
     duploClique.addEventListener("click", () => {
         console.log("Arrow function this: ", this);
     });
@@ -36,6 +55,10 @@ const tarefas = document.getElementById("tarefas");
 const btnAdicionarTarefa = document.getElementById("btnAdicionarTarefa");
 let contador = 4;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
 // Adicionar novas tarefas dinamicamante
 btnAdicionarTarefa.addEventListener("click", function() {
     const li = document.createElement("li");
@@ -44,6 +67,18 @@ btnAdicionarTarefa.addEventListener("click", function() {
     tarefas.appendChild(li);
 });
 
+<<<<<<< HEAD
+=======
+=======
+// Adicionar nova tarefas dinamicamante
+btnAdicionarTarefa.addEventListener("click", function() {
+    const li = document.createElement("li");
+    li.textContent = "Tarefa" + contador;
+    contador++;
+    tarefas.appendChild(li);
+});
+>>>>>>> 47da6c05f42bdfa75d0b70c1a0bf94f88c94c96e
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
 // Delegação: remover tarefas ao clicar
 tarefas.addEventListener("click", function() {
     if(event.target.tagName === "LI") {

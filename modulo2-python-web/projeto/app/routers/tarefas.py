@@ -42,6 +42,7 @@ def listar(
     inicio = (pagina - 1) * limite
     return resultado[inicio : inicio + limite]
 
+<<<<<<< HEAD
 @router.get('/responsavel/{nome}', response_model=list[TarefaSaida])
 def por_responsavel(
     nome: Annotated[str, Path(min_length=2, description='Nome do responsavel')]
@@ -73,6 +74,32 @@ def mudar_status(
             atual['status'] = dados.status
             banco[i] = TarefaSaida(**atual)
             return banco[i]
+=======
+# GET /tarefas/responsavel/{nome}
+@router.get('/responsavel/{nome}', response_model=list[TarefaSaida])
+def por_responsavel(nome: Annotated[str, Path(min_lenght=2, description='Nome do responsavel')]):
+    resultado = [t for t in banco if nome.lower() in (t.Response or'').lower()]
+    if not resultado:
+        raise HTTPException(status_code=404, detail=f'Nenhuma tarefa encotrada')
+    return resultado
+
+# GET /tarefas/prioridade/critica
+@router.get('/prioridade/critica', response_model=list[TarefaSaida])
+def listar_criticas():
+    return [t for t in banco if t.prioridade == PrioridadeEnum.critica and t.status not in (StatusEnum.concluida, StatusEnum.cancelada)]
+
+# PATCH /tarefas/{tarefa_id}/status
+@router.patch('/{tarefa_id}/status', response_model=TarefaSaida)
+def mudar_status(tarefa_id: Annotated[int, Path(ge=1)], dados: MudancaStatus):
+    for i, t in enumerate(banco):
+        if t.id == tarefa_id:
+            if t.status == StatusEnum.cancelada and dados.status != StatusEnum.cancelada:
+                raise HTTPException(status_code=400, detail='Tarefas canceladas, não podem ser alteradas')
+            atual = t.model_dump()
+            atual = ['status'] = dados.status
+            banco[i] = TarefaSaida(**atual)
+            return banco
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
         raise HTTPException(status_code=404, detail='Tarefa não encontrada')
 
 # GET /tarefas/{tarefa_id}

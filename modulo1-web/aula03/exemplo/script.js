@@ -8,7 +8,15 @@ document.getElementById("btnAppend").addEventListener("click", () => {
     container.appendChild(p);
 });
 
+<<<<<<< HEAD
 // 2 prepend - adiciona no início
+=======
+<<<<<<< HEAD
+// 2 prepend - adiciona no início
+=======
+// 2 prepend - adiciona no inicío
+>>>>>>> 47da6c05f42bdfa75d0b70c1a0bf94f88c94c96e
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
 document.getElementById("btnPrepend").addEventListener("click", () => {
     const p = document.createElement("p");
     p.textContent = "Parágrafo adicionado com prepend no início";
@@ -23,10 +31,23 @@ document.getElementById("btnInsertBefore").addEventListener("click", () => {
     container.insertBefore(p, primeiro);
 });
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
 // 4 btnReplace - substitui o primeiro parágrafo
 document.getElementById("btnReplace").addEventListener("click", () => {
     const novo = document.createElement("p");
     novo.textContent = "Primmeiro parágrafo substituido";
+<<<<<<< HEAD
+=======
+=======
+// 4 btnReplace - substitui o primeiro parágrofo
+document.getElementById("btnReplace").addEventListener("click", () => {
+    const novo = document.createElement("p");
+    novo.textContent = "Primeiro parágrafo substituido";
+>>>>>>> 47da6c05f42bdfa75d0b70c1a0bf94f88c94c96e
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
     const primeiro = container.firstElementChild;
     primeiro.replaceWith(novo);
 });
@@ -34,7 +55,15 @@ document.getElementById("btnReplace").addEventListener("click", () => {
 // btnCard - Criar card com botão de remover
 document.getElementById("btnCard").addEventListener("click", () => {
     const card = document.createElement("div");
+<<<<<<< HEAD
     card.className ="card";
+=======
+<<<<<<< HEAD
+    card.className ="card";
+=======
+    card.className = "card";
+>>>>>>> 47da6c05f42bdfa75d0b70c1a0bf94f88c94c96e
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
 
     const titulo = document.createElement("h3");
     titulo.textContent = "Card Dinâmico";
@@ -52,7 +81,15 @@ document.getElementById("btnCard").addEventListener("click", () => {
 // 6 Manipulação de texto con textContent
 document.getElementById("btnTextContent").addEventListener("click", () => {
     const p = document.createElement("p");
+<<<<<<< HEAD
     p.textContent = "Texto adicionado com textContent";
+=======
+<<<<<<< HEAD
+    p.textContent = "Texto adicionado com textContent";
+=======
+    p.textContent = "Texto adicionado com TextContent";
+>>>>>>> 47da6c05f42bdfa75d0b70c1a0bf94f88c94c96e
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
     container.appendChild(p);
 });
 

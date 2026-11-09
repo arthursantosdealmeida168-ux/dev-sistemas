@@ -2,11 +2,25 @@ from pydantic import BaseModel, field_validator, ConfigDict
 from typing import Optional
 from enum import Enum
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
 # Enum: Define os valores aceitos para o campo cargo
 # Aparece como dropdown no swagger automaticamente
 class CargoEnum(str, Enum):
     dev = 'Dev'
     design = 'Designer'
+<<<<<<< HEAD
+=======
+=======
+# Enum: Define os valores aceitos para o campo
+# Aparece como dropdown no swagger automaticamente
+class CargoEnum(str, Enum):
+    dev = 'Dev'
+    desing = 'Designer'
+>>>>>>> 47da6c05f42bdfa75d0b70c1a0bf94f88c94c96e
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
     qa = 'QA'
     product_manager = 'Product Manager'
 
@@ -35,7 +49,15 @@ class UsuarioEntrada (BaseModel):
             raise ValueError('Mínimo 3 caracteres')
         return valor.title()
 
+<<<<<<< HEAD
 # Schema de saída: o que o servidor retorna (COM id)
+=======
+<<<<<<< HEAD
+# Schema de saída: o que o servidor retorna (COM id)
+=======
+# Schema de saída: o que o servido retorna (COM id)
+>>>>>>> 47da6c05f42bdfa75d0b70c1a0bf94f88c94c96e
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
 class UsuarioSaida(BaseModel):
     id: int
     nome: str

@@ -1,3 +1,8 @@
 venv/
+<<<<<<< HEAD
     __pycache__/
     *.db
+=======
+__pycache__/
+*.db
+>>>>>>> b70bcd867e29269b04eac9fd4616173b74b86616
