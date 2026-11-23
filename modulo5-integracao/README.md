@@ -40,11 +40,18 @@ uvicorn main:app --reload
 ---
 ## Rotas da API
 | Método | Rotas | O que faz |
-| --- | --- | --- |
-| GET | '/plataforma/' | Lista todas as plataformas |
-| POST | '/plataforma' | Cadastra uma nova plataforma |
-| GET | '/jogos/' | Lista todos os jogos |
-| POST | '/jogos{id}' | Busca um jogo pelo ID |
+| --- | --- |---|
+|GET | `/plataforma/` | Lista todas as plataformas |
+| POST | `/plataforma` | Cadastra uma nova plataforma |
+| GET | `/jogos/` | Lista todos os jogos |
+| GET | `/jogos{id}` | Busca um jogo pelo ID |
+| POST | `/jogos/` | Cadastra um novo jogo |
+| PUT | `/jogos{id}/` | Atualiza os dados de um jogo |
+| DELETE | `/jogos{id}/` | Remove um jogo |
+| GET | `/Jogos/{id}/avaliacoes` | Lista as avaliações de um jogo |
+| POST | `/avaliacoes/` | Registra uma avaliação |
+| DELETE | `/avaliacoes/{id}/` | Remove uma avaliação |
+
 
 ---
 
