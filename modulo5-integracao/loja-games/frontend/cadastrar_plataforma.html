@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Plataforma</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(13, 52, 83);
+            color: #1d2c55;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: rgba(67, 38, 175, 0.548);
+            padding: 50px;
+            border-radius: 13px;
+            width: 420px;
+            box-shadow: 0 5px 10px black;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: rgb(209, 19, 19);
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: rgba(182, 154, 154, 0.829);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid black;
+            border-radius: 6px;
+            background-color: rgba(100, 148, 237, 0.438);
+            color: #ffff;
+            font-size: 15px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: rgba(160, 22, 22, 0.712);
+            color: #ffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastrar Plataforma</h1>
+        <form>
+            <label for="cadastrar">Cadastrar</label>
+            <input type="text" id="nome da plataforma">
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>
