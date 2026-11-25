@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliar Jogo</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgba(44, 107, 158, 0.479);
+            color: #5066a1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: rgba(61, 38, 146, 0.548);
+            padding: 50px;
+            border-radius: 13px;
+            width: 420px;
+            box-shadow: 0 5px 10px black;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: rgb(116, 24, 24);
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: rgba(216, 206, 206, 0.829);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid black;
+            border-radius: 6px;
+            background-color: rgba(100, 148, 237, 0.438);
+            color: #dbd3d3e1;
+            font-size: 15px;
+        }
+        input::placeholder {
+            color: rgba(219, 211, 211, 0.6);
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: rgba(160, 22, 22, 0.712);
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: red;
+        }
+        .erro {
+            color: #ff6b88;
+            font-size: 12px;
+            margin-top: -14px;
+            margin-bottom: 16px;
+        }
+        .sucesso {
+            color: #7ee8fa;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Avaliar Jogo</h1>
+
+        <form id="form-avaliacao">
+            <label for="comentario">Comentário</label>
+            <input type="text" id="comentario" placeholder="O que você achou?">
+            <p class="erro" id="erro-comentario"></p>
+
+            <label for="nota">Nota (1 a 5)</label>
+            <input type="number" id="nota" min="1" max="5" placeholder="Ex: 5">
+            <p class="erro" id="erro-nota"></p>
+
+            <button type="submit">Enviar Avaliação</button>
+        </form>
+
+        <p class="sucesso" id="mensagem-sucesso"></p>
+    </div>
+
+    <script>
+        const form = document.getElementById('form-avaliacao');
+        
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const comentario = document.getElementById('comentario').value.trim();
+            const nota = Number(document.getElementById('nota').value);
+            
+            const erroComentario = document.getElementById('erro-comentario');
+            const erroNota = document.getElementById('erro-nota');
+            const mensagemSucesso = document.getElementById('mensagem-sucesso');
+
+            erroComentario.textContent = '';
+            erroNota.textContent = '';
+            mensagemSucesso.textContent = '';
+
+            let valido = true;
+
+            if (comentario === '') {
+                erroComentario.textContent = 'Por favor, escreva um comentário.';
+                valido = false;
+            }
+
+            if (!nota || nota < 1 || nota > 5) {
+                erroNota.textContent = 'Insira uma nota válida entre 1 e 5.';
+                valido = false;
+            }
+
+            if (valido) {
+                mensagemSucesso.textContent = 'Avaliação enviada com sucesso!';
+                form.reset();
+            }
+        });
+    </script>
+</body>
+</html>
