@@ -4,132 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja de Games - Cadastrar Jogo</title>
-    <style>
-        *{
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: rgb(13, 52, 83);
-            color: #1d2c55;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .container {
-            background-color: rgba(61, 38, 146, 0.548);
-            padding: 50px;
-            border-radius: 13px;
-            width: 420px;
-            box-shadow: 0 5px 10px black;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: rgb(209, 19, 19);
-        }
-        label {
-            display: block;
-            margin-bottom: 6px;
-            font-size: 14px;
-            color: rgba(216, 206, 206, 0.829);
-        }
-        input, select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid black;
-            border-radius: 6px;
-            background-color: rgba(100, 148, 237, 0.438);
-            color: #ffff;
-            font-size: 15px;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: rgba(160, 22, 22, 0.712);
-            color: #ffff;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: red;
-        }
-        .erro {
-            color: #ff6b88;
-            font-size: 12px;
-            margin-top: -14px;
-            margin-bottom: 16px;
-        }
-        .sucesso {
-            color: rgba(14, 132, 179, 0.582);
-            font-weight: bold;
-            text-align: center;
-            margin-top: 16px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Cadastrar Jogo</h1>
-        <form id="form-jogo">
-            <label for="titulo">Título</label>
-            <input type="text" id="titulo" placeholder="Ex: The legend of zelda: ocarina of time (REMAKE)">
-            <p class="erro" id="erro-titulo"></p>
 
-            <label for="genero">Gênero</label>
-            <input type="text" id="genero" placeholder="Ex: Aventura">
+    <header class="topo">
+        <span class="logo">Loja de Games</span>
+        <nav>
+            <a href="index.html">Catálogo</a>
+            <a href="cadastrar_jogo.html" class="ativo">Novo jogo</a>
+            <a href="plataformas.html">Plataformas</a>
+        </nav>
+    </header>
 
-            <label for="preco">Preço</label>
-            <input type="number" id="preco" placeholder="Ex: 511.66" step="0.01">
-            <p class="erro" id="erro-preco"></p>
+    <main class="pagina">
+        <div class="cartao estreito">
+            <h1 id="titulo-pagina">Cadastrar Jogo</h1>
+            <br>
 
-            <label for="plataforma">plataforma</label>
-            <select id="plataforma">
-                <option value="">-- Selecione --</option>
-                <option value="1">Nintendo switch 2</option>
-            </select>
-            <button type="submit">Cadastrar</button>
-        </form>
-        <p class="mensagem" id="mensagem-sucesso"></p>
-    </div>
-    <script>
-        const form = document.getElementById("form-jogo");
+            <!-- O JavaScript escreve aqui: sucesso ou erro devolvido pela API -->
+            <p id="mensagem" class="mensagem"></p>
 
-        form.addEventListener("submit", function(event) {
-            event.preventDefault();
+            <form id="form-jogo">
+                <label for="titulo">Título</label>
+                <input type="text" id="titulo" placeholder="Ex: GTA VI">
+                <p class="campo-erro" id="erro-titulo"></p>
 
-            // Limpar mensagens anteriores
-            document.getElementById("erro-titulo").textContent = "";
-            document.getElementById("erro-preco").textContent = "";
-            document.getElementById("erro-sucesso").textContent = "";
+                <label for="genero">Gênero</label>
+                <input type="text" id="genero" placeholder="Ex: Ação">
 
-            // Ler valores
-            const titulo = document.getElementById("titulo").value.trim();
-            const preco = parseFloat(document.getElementById("preco").value);
+                <label for="preco">Preço (R$)</label>
+                <input type="number" id="preco" placeholder="Ex: 199.90" step="0.01">
+                <p class="campo-erro" id="erro-preco"></p>
 
-            // Validar
-            let valido = true;
+                <label for="plataforma">Plataforma</label>
+                <!-- O JavaScript cria as <option> a partir da API -->
+                <select id="plataforma">
+                    <option value="">-- Selecione --</option>
+                </select>
+                <p class="campo-erro" id="erro-plataforma"></p>
 
-            if (titulo === "") {
-                document.getElementById("erro-titulo").textContent = "O título é obrigatório";
-                valido = false;
-            }
-            if (isNaN(preco) || preco <= 0) {
-                document.getElementById("erro-preco").textContent = "Informe um preço válido";
-                valido = false;
-            }
-            // Se passou em tudo
-            if (valido) {
-                console.log("Dados válidos", { titulo, preco });
-                document.getElementById("mensagem-sucesso").textContent = `Jogo "{titulo}" pronto para cadastrar`;
-            }
-        });
-    </script>
+                <button type="submit" id="btn-salvar" class="btn btn-bloco">Cadastrar</button>
+            </form>
+
+            <br>
+            <a class="btn btn-secundario btn-bloco" href="index.html" style="text-align:center">Voltar ao catálogo</a>
+        </div>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/cadastrar_jogo.js"></script>
 </body>
 </html>
